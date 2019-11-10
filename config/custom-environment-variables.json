@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "ear_jwtPrivateKey",
+  "db": "ear_db"
+}
