@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const express = require("express")
 const login = require("./routes/login")
 const register = require("./routes/register")
+const track = require("./routes/track")
 
 const app = express()
 
@@ -32,6 +33,7 @@ app.use(
 )
 app.use("/api/login", login)
 app.use("/api/register", register)
+app.use("/api/tracks", track)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))

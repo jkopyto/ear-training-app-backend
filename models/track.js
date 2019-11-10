@@ -21,5 +21,5 @@ const validateTrack = track => {
   return Joi.validate(track, schema)
 }
 
-export { Track }
-export { validateTrack }
+exports.Track = Track
+exports.validateTrack = validateTrack
