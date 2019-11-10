@@ -5,7 +5,7 @@ const express = require("express")
 const router = express.Router()
 
 router.post("/", async (req, res) => {
-  const error = validate(req.body)
+  const { error } = validate(req.body)
   if (error.message) return res.status(400).send(error.message)
 
   const user = await User.findOne({
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   if (!validPassword) res.status(400).send("Invalid email or password")
 
   const token = user.generateAuthToken()
-  res.send({
+  res.status(200).send({
     jwtToken: token
   })
 })
