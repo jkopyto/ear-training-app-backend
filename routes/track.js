@@ -6,10 +6,11 @@ const { Track, validateTrack } = require("../models/track")
 const router = express.Router()
 
 router.get("/:id", [auth], async (req, res) => {
-  const trackId = await Track.findById(req.params.id)
+  const id = req.params.id.replace(".mp3", "")
+  const trackId = await Track.findById(id)
   if (!trackId) return res.status(400).send("There is no track with that id")
 
-  const filePath = `public/tracks/${req.params.id}.mp3`
+  const filePath = `public/tracks/${req.params.id}`
   res.download(filePath, trackId.title)
 })
 
