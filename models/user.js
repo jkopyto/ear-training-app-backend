@@ -25,8 +25,7 @@ const userSchema = new Schema({
     maxlength: 1024
   },
   addNewTrack: {
-    type: Boolean,
-    required: true
+    type: Boolean
   }
 })
 
@@ -56,7 +55,7 @@ function validateUser(user) {
       .min(3)
       .max(255)
       .required(),
-    addNewTrack: Joi.bool().required()
+    addNewTrack: Joi.bool()
   }
 
   return Joi.validate(user, schema)
