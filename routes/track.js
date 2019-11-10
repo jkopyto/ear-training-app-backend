@@ -1,7 +1,7 @@
 const auth = require("../middleware/auth")
 const express = require("express")
 const { User } = require("../models/user")
-const { Track, validate } = require("../models/track")
+const { Track, validateTrack } = require("../models/track")
 
 const router = express.Router()
 
@@ -14,7 +14,7 @@ router.get("/:id", [auth], async (req, res) => {
 })
 
 router.post("/new", [auth], async (req, res) => {
-  const error = validate(req.body)
+  const error = validateTrack(req.body)
   if (error.message) return res.status(400).send("Invalid body")
 
   const user = await User.findById(req.user._id)
