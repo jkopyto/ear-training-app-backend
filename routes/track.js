@@ -5,7 +5,7 @@ const { Track, validateTrack } = require("../models/track")
 
 const router = express.Router()
 
-router.get("/:id", [auth], async (req, res) => {
+router.get("/:id", async (req, res) => {
   const id = req.params.id.replace(".mp3", "")
   const trackId = await Track.findById(id)
   if (!trackId) return res.status(400).send("There is no track with that id")
