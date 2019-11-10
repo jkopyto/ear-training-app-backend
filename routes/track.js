@@ -13,25 +13,25 @@ router.get("/:id", [auth], async (req, res) => {
   res.download(filePath, trackId.title)
 })
 
-// router.post("/new", auth, async(req, res) => {
-//   const error = validate(req.body)
-//   if (error.message) return res.status(400).send("Invalid body")
+router.post("/new", [auth], async (req, res) => {
+  const error = validate(req.body)
+  if (error.message) return res.status(400).send("Invalid body")
 
-//   const user = await User.findById(req.user._id)
-//   if (!user || !user.addNewTrack) return res.status(403).send("Forbidden")
+  const user = await User.findById(req.user._id)
+  if (!user || !user.addNewTrack) return res.status(403).send("Forbidden")
 
-//   let track = await Track.findOne({
-//     title: req.body.title
-//   })
-//   if (track) return res.status(400).send("Track already exists")
+  let track = await Track.findOne({
+    title: req.body.title
+  })
+  if (track) return res.status(400).send("Track already exists")
 
-//   track = new Track({
-//     title: req.body.title
-//   })
+  track = new Track({
+    title: req.body.title
+  })
 
-//   track = await track.save()
+  track = await track.save()
 
-//   return res.status(200).send("Added new track to list")
-// })
+  return res.status(200).send("Added new track to list")
+})
 
 module.exports = router
