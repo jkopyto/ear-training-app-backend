@@ -14,6 +14,13 @@ router.get("/:id", async (req, res) => {
   res.download(filePath, trackId.title)
 })
 
+router.get("/title/:title", [auth], async (req, res) => {
+  const track = await Track.findOne({ title: req.params.title })
+  if (!track) return res.status(400).send("There is no track with given title")
+
+  res.status(200).send(track._id)
+})
+
 router.post("/new", [auth], async (req, res) => {
   const error = validateTrack(req.body)
   if (error.message) return res.status(400).send("Invalid body")
