@@ -39,7 +39,7 @@ router.post("/new", [auth], async (req, res) => {
 
   track = await track.save()
 
-  return res.status(200).send("Added new track to list")
+  return res.status(200).send(`Added new track to list, trackId: ${track._id}`)
 })
 
 module.exports = router
