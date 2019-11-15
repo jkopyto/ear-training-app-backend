@@ -15,7 +15,7 @@ router.get("/:id", async (req, res) => {
 })
 
 router.get("test/:id", async (req, res) => {
-  const filePath = `public/tracks/${req.params.id}`
+  const filePath = `public/tracks/${req.params.id}.xml`
   res.download(filePath, "test")
 })
 
