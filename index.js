@@ -6,6 +6,7 @@ const express = require("express")
 const login = require("./routes/login")
 const register = require("./routes/register")
 const track = require("./routes/track")
+const sheet = require("./routes/sheet")
 
 const app = express()
 
@@ -34,6 +35,7 @@ app.use(
 app.use("/api/login", login)
 app.use("/api/register", register)
 app.use("/api/tracks", track)
+app.use("/api/sheets", sheet)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))

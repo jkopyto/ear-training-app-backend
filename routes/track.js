@@ -31,7 +31,7 @@ router.post("/new", [auth], async (req, res) => {
   if (error.message) return res.status(400).send("Invalid body")
 
   const user = await User.findById(req.user._id)
-  if (!user || !user.addNewTrack) return res.status(403).send("Forbidden")
+  if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let track = await Track.findOne({
     title: req.body.title
