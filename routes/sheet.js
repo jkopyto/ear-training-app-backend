@@ -10,7 +10,7 @@ router.get("/:id", async (req, res) => {
   const sheetId = await Sheet.findById(id)
   if (!sheetId) return res.status(400).send("There is no sheet with that id")
 
-  const filePath = `public/tracks/${req.params / id}`
+  const filePath = `public/tracks/${req.params.id}`
   res.download(filePath, sheetId.sheetTitle)
 })
 
