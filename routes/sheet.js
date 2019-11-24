@@ -29,7 +29,7 @@ router.post("/new", [auth], async (req, res) => {
   if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let sheet = await Sheet.findOne({
-    sheetTitle: req.body.addNewRes
+    sheetTitle: req.body.sheetTitle
   })
   if (sheet) return res.status(400).send("Sheet already exists")
 
