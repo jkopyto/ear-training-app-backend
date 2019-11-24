@@ -14,11 +14,6 @@ router.get("/:id", async (req, res) => {
   res.download(filePath, trackId.title)
 })
 
-router.get("/test/:id", async (req, res) => {
-  const filePath = `public/tracks/${req.params.id}.xml`
-  res.download(filePath, "test")
-})
-
 router.get("/title/:title", [auth], async (req, res) => {
   const track = await Track.findOne({ title: req.params.title })
   if (!track) return res.status(400).send("There is no track with given title")

@@ -41,3 +41,5 @@ router.post("/new", [auth], async (req, res) => {
 
   return res.status(200).send(`Added new sheet to list, sheetId: ${sheet._id}`)
 })
+
+module.exports = router
