@@ -4,6 +4,7 @@ const {
   IntervalExcersises,
   validateIntervalExcersise
 } = require("../models/intervalExcersise")
+const { User } = require("../models/user")
 const _ = require("lodash")
 
 const router = express.Router()
@@ -21,6 +22,9 @@ router.get("/", [auth], async (req, res) => {
 router.post("/new", [auth], async (req, res) => {
   const error = validateIntervalExcersise(req.body)
   if (error.message) return res.status(400).send("Invalid body")
+
+  const user = await User.findById(req.user._id)
+  if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let intervalExcersise = new IntervalExcersises(
     _.pick(req.body, ["notes", "playingStyle", "rightAnswer"])

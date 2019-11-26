@@ -1,6 +1,7 @@
 const auth = require("../middleware/auth")
 const express = require("express")
 const _ = require("lodash")
+const { User } = require("../models/user")
 const {
   VoiceNoteExcersise,
   validateVoiceNoteExcersise
@@ -21,6 +22,9 @@ router.get("/", [auth], async (req, res) => {
 router.post("/new", [auth], async (req, res) => {
   const error = validateVoiceNoteExcersise(req.body)
   if (error.message) return res.status(400).send("Invalid body")
+
+  const user = await User.findById(req.user._id)
+  if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let voiceNoteExcerise = new VoiceNoteExcersise(
     _.pick(req.body, [

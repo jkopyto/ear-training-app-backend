@@ -4,6 +4,7 @@ const {
   EnharmonicsExcersises,
   validateEnharmonicExcersise
 } = require("../models/enharmonicExcersise")
+const { User } = require("../models/user")
 const _ = require("lodash")
 
 const router = express.Router()
@@ -21,6 +22,9 @@ router.get("/", [auth], async (req, res) => {
 router.post("/new", [auth], async (req, res) => {
   const error = validateEnharmonicExcersise(req.body)
   if (error.message) return res.status(400).send("Invalid body")
+
+  const user = await User.findById(req.user._id)
+  if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let enharmonicExcersise = new EnharmonicsExcersises(
     _.pick(req.body, ["sheetBackendTitle", "title", "backendTitle"])

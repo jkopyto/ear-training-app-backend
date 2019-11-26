@@ -4,6 +4,7 @@ const {
   OffNoteExcersises,
   validateOffNoteExcersise
 } = require("../models/offNoteExcersise")
+const { User } = require("../models/user")
 const _ = require("lodash")
 
 const router = express.Router()
@@ -21,6 +22,9 @@ router.get("/", [auth], async (req, res) => {
 router.post("/new", [auth], async (req, res) => {
   const error = validateOffNoteExcersise(req.body)
   if (error.message) return res.status(400).send("Invalid body")
+
+  const user = await User.findById(req.user._id)
+  if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let offNoteExcersise = new OffNoteExcersises(
     _.pick(req.body, ["title", "cover", "backendTitle", "key", "rightAnswer"])
