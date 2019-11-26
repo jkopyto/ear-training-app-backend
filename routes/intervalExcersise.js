@@ -14,6 +14,8 @@ router.get("/", [auth], async (req, res) => {
     return res
       .status(400)
       .send("Something went wrong. There is no enharmonicsExcersises")
+
+  res.status(200).send(excersises)
 })
 
 router.post("/new", [auth], async (req, res) => {

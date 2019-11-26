@@ -23,7 +23,15 @@ router.post("/new", [auth], async (req, res) => {
   if (error.message) return res.status(400).send("Invalid body")
 
   let voiceNoteExcerise = new VoiceNoteExcersise(
-    _.pick[("title", "cover", "backendTitle", "key", "rightAnswer")]
+    _.pick(req.body, [
+      "rightAnswer",
+      "backendTitle",
+      "cover",
+      "instrument",
+      "startingVoiceNote",
+      "givenVoicePosition",
+      "excersiseNotePosition"
+    ])
   )
 
   voiceNoteExcerise = await voiceNoteExcerise.save()
