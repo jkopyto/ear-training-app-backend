@@ -7,6 +7,10 @@ const login = require("./routes/login")
 const register = require("./routes/register")
 const track = require("./routes/track")
 const sheet = require("./routes/sheet")
+const enharmonicExcersise = require("./routes/enharmonicExcersise")
+const intervalExcersise = require("./routes/intervalExcersise")
+const offNoteExcersise = require("./routes/offNoteExcersise")
+const voiceNoteExcersise = require("./routes/voiceNoteExcersise")
 
 const app = express()
 
@@ -36,6 +40,10 @@ app.use("/api/login", login)
 app.use("/api/register", register)
 app.use("/api/tracks", track)
 app.use("/api/sheets", sheet)
+app.use("/api/enharmonic", enharmonicExcersise)
+app.use("/api/interval", intervalExcersise)
+app.use("/api/offNote", offNoteExcersise)
+app.use("/api/voiceNote", voiceNoteExcersise)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on port ${port}...`))
