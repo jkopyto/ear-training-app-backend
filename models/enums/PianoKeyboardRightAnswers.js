@@ -13,4 +13,4 @@ const PianoKeyboardRightAnswers = [
   "H"
 ]
 
-export default PianoKeyboardRightAnswers
+exports.PianoKeyboardRightAnswers = PianoKeyboardRightAnswers

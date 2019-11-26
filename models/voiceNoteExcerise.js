@@ -1,7 +1,9 @@
-import Instruments from "./enums/Instruments"
-import ScaleNotes from "./enums/ScaleNotes"
-import VoicePosition from "./enums/VoicePosition"
-import PianoKeybardRightAnswers from "./enums/PianoKeyboardRightAnswers"
+const { Instruments } = require("./enums/Instruments")
+const { ScaleNotes } = require("./enums/ScaleNotes")
+const { VoicePosition } = require("./enums/VoicePosition")
+const {
+  PianoKeybardRightAnswers
+} = require("./enums/PianoKeyboardRightAnswers")
 const Joi = require("joi")
 const Schema = require("mongoose").Schema
 const mongoose = require("mongoose")

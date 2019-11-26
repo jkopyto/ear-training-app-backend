@@ -18,4 +18,4 @@ const ScaleNotes = [
   "H"
 ]
 
-export default ScaleNotes
+exports.ScaleNotes = ScaleNotes

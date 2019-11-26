@@ -7,4 +7,4 @@ const voicePosition = [
   "lowestFemale"
 ]
 
-export default voicePosition
+exports.voicePosition = voicePosition

@@ -13,4 +13,4 @@ const Answers = [
   "octave"
 ]
 
-export default Answers
+exports.Answers = Answers

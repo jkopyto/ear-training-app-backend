@@ -1,5 +1,7 @@
-import Key from "./enums/Key"
-import PianoKeyboardRightAnswer from "./enums/PianoKeyboardRightAnswers"
+const { Key } = require("./enums/Key")
+const {
+  PianoKeyboardRightAnswer
+} = require("./enums/PianoKeyboardRightAnswers")
 const Joi = require("joi")
 const Schema = require("mongoose").Schema
 const mongoose = require("mongoose")

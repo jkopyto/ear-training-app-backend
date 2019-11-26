@@ -1,13 +1,14 @@
-import NoteType from "./enums/NoteType"
-import PlayingStyle from "./enums/PlayingStyle"
-import Answers from "./enums/Answers"
+const { NoteType } = require("./enums/NoteType")
+const { PlayingStyle } = require("./enums/PlayingStyle")
+const { Answers } = require("./enums/Answers")
 const Joi = require("joi")
 const Schema = require("mongoose").Schema
 const mongoose = require("mongoose")
 
 const intervalExcersiseSchema = new Schema({
   notes: {
-    type: [[NoteType]],
+    type: [String],
+    enum: NoteType,
     required: true
   },
   playingStyle: {

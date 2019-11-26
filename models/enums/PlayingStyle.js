@@ -1,3 +1,3 @@
 const PlayingStyle = ["melodic", "harmonic"]
 
-export default PlayingStyle
+exports.PlayingStyle = PlayingStyle

@@ -107,4 +107,4 @@ const NoteType = [
   "C6"
 ]
 
-export default NoteType
+exports.NoteType = NoteType
