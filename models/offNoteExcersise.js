@@ -13,11 +13,6 @@ const offNoteExcersiseSchema = new Schema({
     minlength: 3,
     maxlength: 80
   },
-  cover: {
-    type: String,
-    required: true,
-    minlength: 3
-  },
   backendTitle: {
     type: String,
     required: true,
@@ -46,9 +41,6 @@ const validateOffNoteExcersise = offNoteExcersise => {
     title: Joi.string()
       .min(3)
       .max(80)
-      .required(),
-    cover: Joi.string()
-      .min(3)
       .required(),
     backendTitle: Joi.string()
       .min(3)

@@ -30,7 +30,6 @@ router.post("/new", [auth], async (req, res) => {
     _.pick(req.body, [
       "rightAnswer",
       "backendTitle",
-      "cover",
       "instrument",
       "startingVoiceNote",
       "givenVoicePosition",

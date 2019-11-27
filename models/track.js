@@ -8,6 +8,11 @@ const trackSchema = new Schema({
     required: true,
     minlength: 3,
     maxlength: 50
+  },
+  cover: {
+    type: String,
+    required: true,
+    minlength: 3
   }
 })
 
@@ -17,6 +22,10 @@ const validateTrack = track => {
     title: Joi.string()
       .min(3)
       .max(50)
+      .required(),
+    cover: Joi.string()
+      .min(3)
+      .required()
   }
   return Joi.validate(track, schema)
 }

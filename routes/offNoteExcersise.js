@@ -27,7 +27,7 @@ router.post("/new", [auth], async (req, res) => {
   if (!user || !user.addNewRes) return res.status(403).send("Forbidden")
 
   let offNoteExcersise = new OffNoteExcersises(
-    _.pick(req.body, ["title", "cover", "backendTitle", "key", "rightAnswer"])
+    _.pick(req.body, ["title", "backendTitle", "key", "rightAnswer"])
   )
 
   offNoteExcersise = await offNoteExcersise.save()

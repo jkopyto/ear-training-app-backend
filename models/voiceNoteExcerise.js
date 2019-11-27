@@ -20,11 +20,6 @@ const voiceNoteExcersiseSchema = new Schema({
     minlength: 3,
     maxlength: 80
   },
-  cover: {
-    type: String,
-    required: true,
-    minlength: 3
-  },
   instrument: {
     type: String,
     required: true,
@@ -58,9 +53,6 @@ const validateVoiceNoteExcersise = voiceNoteExcersise => {
     backendTitle: Joi.string()
       .min(3)
       .max(80)
-      .required(),
-    cover: Joi.string()
-      .min(3)
       .required(),
     instrument: Joi.string().required(),
     startingVoiceNote: Joi.string().required(),
